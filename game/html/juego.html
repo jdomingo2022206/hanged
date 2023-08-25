@@ -15,12 +15,41 @@
             <!-- Aquí se mostrarán las letras a adivinar -->
             </div>  
         </div>
-        
-        <h2>Letras incorrectas</h2> <h2 id="pista">_ _ _ _ _ _ _ _ _ _ _</h2> 
+        <!--  
+        <h2>Letras incorrectas</h2> <h2 id="pista">_ _ _ _ _ _ _ _ _ _ _</h2>
+        <h2>Vidas</h2> <h2 id="vidas">7</h2>
+        -->
+         
+
+
+        <div class="col-sm-8">
+            <table class="table table-hober">
+                <thead>
+                    <tr>
+                        <td>Letras incorrectas</td>
+                        <td>Vidas</td>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td id="pista">_ _ _ _ _ _ _ _ _ _ _</td>
+                            <td id-="vidas">7</td>
+                                <a class="btn btn-warning" href="#">Editar</a>
+                                
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            
+        </div>
+
+
+
 
         <div class="card">
             <div id="alphabet-buttons"></div>
             <div id="alphabet-buttons2"></div>
+            <button id="resetButton">Reiniciar</button>
         </div>
 
 
@@ -29,6 +58,16 @@
             <!-- Aquí podrías mostrar gráficos del ahorcado -->
         </div>
     </div>
+
+    <script>
+        document.getElementById("resetButton").addEventListener("click", function() {
+            // Código para reiniciar el programa
+            // Por ejemplo, restablecer variables, limpiar elementos, etc.
+            // Puedes colocar aquí cualquier lógica específica para tu programa
+            alert("El programa ha sido reiniciado");
+        });
+    </script>
+        
 </body>
 
 </html>

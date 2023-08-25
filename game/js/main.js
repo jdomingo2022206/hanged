@@ -1,10 +1,50 @@
-const wordToGuess = "HANGMAN";  // Palabra a adivinar (mayúsculas)
+
+const wordBank = ["QUESO", "CREMA", "QUESILLO", "LECHE", "MIEL", "ZERMAT"];
+
+// Función para seleccionar una palabra aleatoria del banco
+function selectRandomWord() {
+    const randomIndex = Math.floor(Math.random() * wordBank.length);
+    return wordBank[randomIndex];
+}
+
+let wordToGuess = selectRandomWord(); // Inicializar con una palabra aleatoria del banco
+
+
+
+// const wordToGuess = "HANGMAN";  // Palabra a adivinar (mayúsculas)
 let guessedWord = "";
 let incorrectGuesses = 0;
-let maxIncorrectGuesses = 7;
+let maxIncorrectGuesses = 6;
 let incorrectLetter = "";
+let vidas =7;
 
 const map = {};
+
+
+
+
+
+const mapToGuessedWord = () => {
+    return wordToGuess.split("").reduce((acc, curr, i) => {
+        return map[i] ? acc + curr : acc + " _"
+    }, "")
+}
+
+function inicio(){
+    guessedWord = mapToGuessedWord()
+    document.getElementById('word-container').textContent = guessedWord;
+
+}
+
+inicio();
+
+
+
+
+
+
+
+
 
 function createAlphabetButtons(alphabet, containerName) {
     // const alphabet = 'ABCDEFGHIJKLMN';
@@ -43,11 +83,11 @@ createAlphabetButtons("OPQRSTUVWXYZ", "alphabet-buttons2");
 
 
 
-const mapToGuessedWord = () => {
-    return wordToGuess.split("").reduce((acc, curr, i) => {
-        return map[i] ? acc + curr : acc + "_"
-    }, "")
-}
+// const mapToGuessedWord = () => {
+//     return wordToGuess.split("").reduce((acc, curr, i) => {
+//         return map[i] ? acc + curr : acc + "_"
+//     }, "")
+// }
 
 const checkLetter = (letter) => {
     wordToGuess.split("").forEach((letterOfWord, i) => {
@@ -63,18 +103,24 @@ const disableButton = (letter) => {
 
 const checkWinner = () => {
     incorrectGuesses >= maxIncorrectGuesses && alert("¡Has perdido!");
+    // if (incorrectGuesses >= maxIncorrectGuesses) alert("¡Has perdido!");
     if (guessedWord === wordToGuess) alert("¡Has ganado!")
 }
 
 const checkIfNeedsPista = (letter) => {
     if (wordToGuess.includes(letter)) return;
     incorrectGuesses++;
+    vidas--;
     // Actualizar gráficos del ahorcado
     document.getElementById('pista').textContent = incorrectLetter += letter;
+    document.getElementById('vidas').textContent = vidas;
 
 }
 
 function handleGuess(letter) {
+    // Verificar si se completó la palabra o se perdio el juego
+    checkWinner()
+
     checkLetter(letter)
 
     guessedWord = mapToGuessedWord()
