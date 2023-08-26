@@ -1,5 +1,5 @@
 
-const wordBank = ["QUESO", "CREMA", "QUESILLO", "LECHE", "MIEL", "ZERMAT"];
+const wordBank = ["BELLINGHAM", "VALVERDE", "MODRIC", "KROOS", "CAMAVINGA", "LUNING", "MENDY", "VINICIUS", "RODRIGO", "TCHUAMENI"];
 
 // Función para seleccionar una palabra aleatoria del banco
 function selectRandomWord() {
@@ -59,7 +59,7 @@ function createAlphabetButtons(alphabet, containerName) {
             const clickedLetter = event.target.textContent; // Valor de la letra en el botón
             // Llama a tu función de manejo de adivinanzas con la letra
             handleGuess(clickedLetter);
-            console.log(clickedLetter);
+            
         });
 
         buttonsContainer.appendChild(button);
