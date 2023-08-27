@@ -102,9 +102,17 @@ const disableButton = (letter) => {
 }
 
 const checkWinner = () => {
-    incorrectGuesses >= maxIncorrectGuesses && alert("¡Has perdido!");
-    // if (incorrectGuesses >= maxIncorrectGuesses) alert("¡Has perdido!");
-    if (guessedWord === wordToGuess) alert("¡Has ganado!")
+
+    if (incorrectGuesses >= maxIncorrectGuesses) {
+        alert("¡Has perdido!");
+        document.getElementById('word-container').textContent = wordToGuess;
+    } else if(guessedWord === wordToGuess) {
+        alert("¡Has ganado!");
+    }
+
+    // incorrectGuesses >= maxIncorrectGuesses && alert("¡Has perdido!");
+    // // if (incorrectGuesses >= maxIncorrectGuesses) alert("¡Has perdido!");
+    // if (guessedWord === wordToGuess) alert("¡Has ganado!")
 }
 
 const checkIfNeedsPista = (letter) => {
