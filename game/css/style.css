@@ -1,0 +1,81 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('../img/desert.avif');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+
+.card {
+    background-color: #70460897;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#alphabet-buttons,
+#alphabet-buttons2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 3px;
+    font-size: 35px;
+    background-color: #e89d10;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #db4b23;
+}
+
+
+#word-container {
+display: flex;
+justify-content: center;
+margin-top: 20px;
+font-size: 24px;
+}
+
+#hangman {
+/* Estilos para mostrar el ahorcado */
+}
+
+
+[data-letra]:disabled {
+opacity: 0.5; /* Cambia la opacidad del botón deshabilitado */
+cursor: not-allowed; /* Cambia el cursor al estar sobre el botón deshabilitado */
+}
+
+#title {
+    text-align: center; /* Alinear contenido horizontalmente */
+    margin: 3px;
+    background-color: #99ebee;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: "Times New Roman", serif;
+}
+
+#status-game {
+    margin-top: 10px; /* Espaciado entre los elementos */
+}
+
+.word {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
