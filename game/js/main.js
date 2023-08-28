@@ -1,5 +1,4 @@
-
-const wordBank = ["BELLINGHAM", "VALVERDE", "MODRIC", "KROOS", "CAMAVINGA", "LUNING", "MENDY", "VINICIUS", "RODRIGO", "TCHUAMENI"];
+ const wordBank = ["MESSI", "XAVI", "INIESTA", "CRUYFF", "RONALDINHO", "PUYOL", "RIVALDO", "ROMARIO", "SUAREZ", "GUARDIOLA", "NEYMAR", "PIQUE"];
 
 // Función para seleccionar una palabra aleatoria del banco
 function selectRandomWord() {
@@ -9,9 +8,6 @@ function selectRandomWord() {
 
 let wordToGuess = selectRandomWord(); // Inicializar con una palabra aleatoria del banco
 
-
-
-// const wordToGuess = "HANGMAN";  // Palabra a adivinar (mayúsculas)
 let guessedWord = "";
 let incorrectGuesses = 0;
 let maxIncorrectGuesses = 6;
@@ -19,9 +15,6 @@ let incorrectLetter = "";
 let vidas =7;
 
 const map = {};
-
-
-
 
 
 const mapToGuessedWord = () => {
@@ -38,17 +31,7 @@ function inicio(){
 
 inicio();
 
-
-
-
-
-
-
-
-
 function createAlphabetButtons(alphabet, containerName) {
-    // const alphabet = 'ABCDEFGHIJKLMN';
-    // const buttonsContainer = document.getElementById('alphabet-buttons');
     const buttonsContainer = document.getElementById(containerName);
 
     for (let letter of alphabet.split("")) {
@@ -70,25 +53,6 @@ function createAlphabetButtons(alphabet, containerName) {
 createAlphabetButtons("ABCDEFGHIJKLMN", "alphabet-buttons");
 createAlphabetButtons("OPQRSTUVWXYZ", "alphabet-buttons2");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const mapToGuessedWord = () => {
-//     return wordToGuess.split("").reduce((acc, curr, i) => {
-//         return map[i] ? acc + curr : acc + "_"
-//     }, "")
-// }
-
 const checkLetter = (letter) => {
     wordToGuess.split("").forEach((letterOfWord, i) => {
         if (letterOfWord === letter) map[i] = true;
@@ -104,10 +68,12 @@ const disableButton = (letter) => {
 const checkWinner = () => {
 
     if (incorrectGuesses >= maxIncorrectGuesses) {
-        alert("¡Has perdido!");
+        // alert("¡Has perdido!");
         document.getElementById('word-container').textContent = wordToGuess;
+        document.getElementById('status-game').textContent = "Has perdido";
     } else if(guessedWord === wordToGuess) {
-        alert("¡Has ganado!");
+        // alert("¡Has ganado!");
+        document.getElementById('status-game').textContent = "Has ganado";
     }
 
     // incorrectGuesses >= maxIncorrectGuesses && alert("¡Has perdido!");
@@ -142,9 +108,26 @@ function handleGuess(letter) {
 
     document.getElementById('word-container').textContent = guessedWord;
     
-
     // Verificar si se completó la palabra o se perdio el juego
     checkWinner()
 }
+
+
+// const resetButton = document.getElementById("resetButton");
+
+// resetButton.addEventListener("click", function() {
+//     wordToGuess = selectRandomWord(); // Seleccionar nueva palabra aleatoria
+//     guessedWord = ""; // Reiniciar palabra adivinada
+//     incorrectGuesses = 0; // Reiniciar intentos incorrectos
+//     incorrectLetter = ""; // Reiniciar letras incorrectas
+//     vidas = 7; // Reiniciar vidas
+//     // map = {}; // Reiniciar mapa de letras adivinadas
+
+//     // Llamar a la función de inicio para reconfigurar el juego
+//     inicio();
+    
+// });
+
+
 
 

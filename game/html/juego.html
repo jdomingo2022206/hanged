@@ -9,8 +9,14 @@
 
 <body>
     <div class="d-flex">
-      
-        <div class="card">
+        
+        <div id="title">
+            <h1>Jugadores del barca</h1>
+            
+            <h2 id="status-game"></h2>
+        </div>
+
+        <div id="word">
             <div id="word-container">
             <!-- Aquí se mostrarán las letras a adivinar -->
             </div>  
@@ -53,7 +59,7 @@
         <div class="card">
             <div id="alphabet-buttons"></div>
             <div id="alphabet-buttons2"></div>
-            <button id="resetButton">Reiniciar</button>
+            <!-- <button id="resetButton">Reiniciar</button> -->
         </div>
 
 
@@ -62,15 +68,6 @@
             <!-- Aquí podrías mostrar gráficos del ahorcado -->
         </div>
     </div>
-
-    <script>
-        document.getElementById("resetButton").addEventListener("click", function() {
-            // Código para reiniciar el programa
-            // Por ejemplo, restablecer variables, limpiar elementos, etc.
-            // Puedes colocar aquí cualquier lógica específica para tu programa
-            alert("El programa ha sido reiniciado");
-        });
-    </script>
         
 </body>
 
