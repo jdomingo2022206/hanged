@@ -1,4 +1,4 @@
- const wordBank = ["MESSI", "XAVI", "INIESTA", "CRUYFF", "RONALDINHO", "PUYOL", "RIVALDO", "ROMARIO", "SUAREZ", "GUARDIOLA", "NEYMAR", "PIQUE"];
+const wordBank = ["MESSI", "XAVI", "INIESTA", "CRUYFF", "RONALDINHO", "PUYOL", "RIVALDO", "ROMARIO", "SUAREZ", "GUARDIOLA", "NEYMAR", "PIQUE"];
 
 // Función para seleccionar una palabra aleatoria del banco
 function selectRandomWord() {
@@ -12,7 +12,9 @@ let guessedWord = "";
 let incorrectGuesses = 0;
 let maxIncorrectGuesses = 6;
 let incorrectLetter = "";
-let vidas =7;
+let vidas = 7;
+
+const usedLetters = new Set(); // Conjunto para rastrear las letras utilizadas
 
 const map = {};
 
@@ -23,7 +25,7 @@ const mapToGuessedWord = () => {
     }, "")
 }
 
-function inicio(){
+function inicio() {
     guessedWord = mapToGuessedWord()
     document.getElementById('word-container').textContent = guessedWord;
 
@@ -42,7 +44,7 @@ function createAlphabetButtons(alphabet, containerName) {
             const clickedLetter = event.target.textContent; // Valor de la letra en el botón
             // Llama a tu función de manejo de adivinanzas con la letra
             handleGuess(clickedLetter);
-            
+
         });
 
         buttonsContainer.appendChild(button);
@@ -50,8 +52,9 @@ function createAlphabetButtons(alphabet, containerName) {
 }
 
 // Llama a la función para crear los botones del alfabeto
-createAlphabetButtons("ABCDEFGHIJKLMN", "alphabet-buttons");
-createAlphabetButtons("OPQRSTUVWXYZ", "alphabet-buttons2");
+createAlphabetButtons("QWERTYUIOP", "alphabet-buttons");
+createAlphabetButtons("ASDFGHJKL", "alphabet-buttons2");
+createAlphabetButtons("ZXCVBNM", "alphabet-buttons3");
 
 const checkLetter = (letter) => {
     wordToGuess.split("").forEach((letterOfWord, i) => {
@@ -71,7 +74,7 @@ const checkWinner = () => {
         // alert("¡Has perdido!");
         document.getElementById('word-container').textContent = wordToGuess;
         document.getElementById('status-game').textContent = "Has perdido";
-    } else if(guessedWord === wordToGuess) {
+    } else if (guessedWord === wordToGuess) {
         // alert("¡Has ganado!");
         document.getElementById('status-game').textContent = "Has ganado";
     }
@@ -98,36 +101,34 @@ function handleGuess(letter) {
     checkLetter(letter)
 
     guessedWord = mapToGuessedWord()
-    
+
     disableButton(letter)
     if (!wordToGuess.includes(letter)) {
         checkIfNeedsPista(letter)
         return
-    }    
+    }
     if (!guessedWord.includes(letter)) guessedWord += letter;
 
     document.getElementById('word-container').textContent = guessedWord;
-    
+
     // Verificar si se completó la palabra o se perdio el juego
     checkWinner()
 }
 
 
-// const resetButton = document.getElementById("resetButton");
-
-// resetButton.addEventListener("click", function() {
-//     wordToGuess = selectRandomWord(); // Seleccionar nueva palabra aleatoria
-//     guessedWord = ""; // Reiniciar palabra adivinada
-//     incorrectGuesses = 0; // Reiniciar intentos incorrectos
-//     incorrectLetter = ""; // Reiniciar letras incorrectas
-//     vidas = 7; // Reiniciar vidas
-//     // map = {}; // Reiniciar mapa de letras adivinadas
-
-//     // Llamar a la función de inicio para reconfigurar el juego
-//     inicio();
-    
-// });
-
-
-
+document.addEventListener('keydown', function(event) {
+    // Verificar si la tecla presionada es una letra
+    if (/^[a-zA-Z]$/.test(event.key)) {
+        // Convertir la letra a mayúscula
+        const letter = event.key.toUpperCase();
+        
+        // Verificar si la letra ya fue utilizada
+        if (!usedLetters.has(letter)) {
+            // Agregar la letra al conjunto de letras utilizadas
+            usedLetters.add(letter);
+            // Llamar a la función de manejo de adivinanzas con la letra
+            handleGuess(letter);
+        }
+    }
+});
 

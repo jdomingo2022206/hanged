@@ -20,7 +20,8 @@ body {
 }
 
 #alphabet-buttons,
-#alphabet-buttons2 {
+#alphabet-buttons2,
+#alphabet-buttons3 {
     display: flex;
     justify-content: center;
     margin-top: 20px;
