@@ -4,13 +4,10 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-image: url('../img/desert.avif');
+    background-image: url('../img/4253805.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
-
-
-
 
 .card {
     background-color: #70460897;
@@ -20,7 +17,8 @@ body {
 }
 
 #alphabet-buttons,
-#alphabet-buttons2 {
+#alphabet-buttons2,
+#alphabet-buttons3 {
     display: flex;
     justify-content: center;
     margin-top: 20px;
@@ -50,6 +48,11 @@ font-size: 24px;
 }
 
 #hangman {
+    display: flex;
+    background-color: darkcyan;
+    align-items: end;
+    height: auto;
+    width: auto;
 /* Estilos para mostrar el ahorcado */
 }
 
@@ -79,3 +82,35 @@ cursor: not-allowed; /* Cambia el cursor al estar sobre el botón deshabilitado 
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#card {
+    display: flex;
+  }
+  
+  .col-half {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid darkcyan;
+    display: flex;
+    flex-direction: column;
+  }
+  .col-half > * {
+    flex: 1;
+    margin-bottom: 10px;
+  }
+
+#container{
+    background-color: darkcyan;
+    display: flex;
+    height: 450px;
+  }
+
+  

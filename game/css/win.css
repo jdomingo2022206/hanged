@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url(../img/con.gif);
+    margin: 0;
+    padding: 0;
+    
+}
+
+h1 {
+    color: #007bff;
+    font-size: 36px;
+    margin-top: 20px;
+}
+
+img {
+    max-width: 25%;
+    height: auto;
+    margin: 20px 0;
+    right: 38%;
+    position: absolute;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 20px;
+    padding: 20px 30px;
+    border: none;
+    cursor: pointer;
+    top: 80%;
+    right: 43%;
+    position: absolute;
+
+    
+}
+
+button:hover {
+    background-color: #0056b3;
+}
