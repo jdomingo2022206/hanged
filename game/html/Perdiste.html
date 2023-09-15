@@ -8,23 +8,37 @@
 </head>
 <body>
   <header>
-    <h1>Perdiste :(</h1>
   </header>
   <main>
     <div class="container">
       <div class="image-container">
+        <h1>Perdiste :(</h1>
+        <h2>La palabra correcta era: <span id="correctWord"></span></h2>
         <img src="../img/PERDISTE.webp" alt="Imagen">
       </div>
 
       <button id="jugarButton">Volver a Jugar</button>
     </div>
     <script>
-      document.getElementById("jugarButton").addEventListener("click", function() {
+      document.addEventListener('DOMContentLoaded', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const lostWord = urlParams.get('word');
+
+        const correctWordSpan = document.getElementById('correctWord');
+
+        if (lostWord) {
+          correctWordSpan.textContent = decodeURIComponent(lostWord);
+        } else {
+          correctWordSpan.textContent = "Palabra desconocida"; // En caso de que no haya parámetro en la URL
+        }
+
+        document.getElementById("jugarButton").addEventListener("click", function () {
           // Redireccionar al jugador de nuevo al juego
           window.location.href = "menu.html"; // Reemplaza "tu_juego.html" con la URL de tu juego
+        });
       });
   </script>
   </main>
-  <script src="../js/Perdiste.js" ></script>
+  <!-- <script src="../js/Perdiste.js" ></script> -->
 </body>
 </html>

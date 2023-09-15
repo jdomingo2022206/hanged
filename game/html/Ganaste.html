@@ -8,11 +8,13 @@
 </head>
 <body>
   <header>
-    <h1>SIUUUUUU!!</h1>
+    
   </header>
   <main>
     <div class="container">
       <div class="image-container">
+        <h1>SIUUUUUU!!</h1>
+        <h2>Adivinaste a: <span id="correctWord"></span></h2>
         <img src="../img/CAMPEON.png" alt="Imagen">
         
       </div>
@@ -21,12 +23,25 @@
     </div>
 
     <script>
-      document.getElementById("volverAJugar").addEventListener("click", function() {
+      document.addEventListener('DOMContentLoaded', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const wonWord = urlParams.get('word');
+
+        const correctWordSpan = document.getElementById('correctWord');
+
+        if (wonWord) {
+          correctWordSpan.textContent = decodeURIComponent(wonWord);
+        } else {
+          correctWordSpan.textContent = "Palabra desconocida"; // En caso de que no haya parámetro en la URL
+        }
+
+        document.getElementById("volverAJugar").addEventListener("click", function () {
           // Redireccionar al jugador de nuevo al juego
           window.location.href = "menu.html"; // Reemplaza "tu_juego.html" con la URL de tu juego
+        });
       });
   </script>
   </main>
-  <script src="../js/Ganaste.js" ></script>
+  <!-- <script src="../js/Ganaste.js" ></script> -->
 </body>
 </html>
