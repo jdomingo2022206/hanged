@@ -1,0 +1,42 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url(../img/over.gif);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+/* Estilos para el encabezado */
+h1 {
+    color: #ff0000; /* Color rojo para indicar la pérdida */
+    font-size: 36px;
+    margin-top: 20px;
+}
+
+/* Estilos para la imagen */
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+/* Estilos para el botón */
+button {
+    background-color: #ff0000; /* Color rojo para el botón */
+    color: #fff;
+    font-size: 20px;
+    padding: 20px 30px;
+    border: none;
+    cursor: pointer;
+    top: 80%;
+    left: 45%;
+    position: absolute;
+}
+
+button:hover {
+    background-color: #cc0000; /* Cambio de color al pasar el mouse */
+}
