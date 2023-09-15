@@ -1,4 +1,4 @@
-const wordBank = ["VERRATTI", "RONALDINHO", "NEYMAR", "MBAPPE", "ZLATAN", "SILVA", "CAVANI", "MESSI", "MARQUINHOS", "DIMARIA", "DENBELE", "DAVID"];
+const wordBank = ["VERRATTI", "RONALDINHO", "NEYMAR", "MBAPPE", "ZLATAN", "DEMBELE", "CAVANI", "MESSI", "MARQUINHOS", "DIMARIA", "HAKIMI", "PAREDES", "DAVID"];
 
 // Función para seleccionar una palabra aleatoria del banco
 function selectRandomWord() {
@@ -69,11 +69,13 @@ const disableButton = (letter) => {
 }
 
 function redirectToWinPage() {
-    window.location.href = "Ganaste.html"; // Reemplaza "ganaste.html" con la ruta de tu página de victoria
+    const wonWord = encodeURIComponent(wordToGuess); // Codifica la palabra en caso de que contenga caracteres especiales
+    window.location.href = `Ganaste.html?word=${wonWord}`; // Reemplaza "ganaste.html" con la ruta de tu página de victoria
 }
 
 function redirectToLosePage() {
-    window.location.href = "Perdiste.html"; // Reemplaza "perdiste.html" con la ruta de tu página de derrota
+    const lostWord = encodeURIComponent(wordToGuess); // Codifica la palabra en caso de que contenga caracteres especiales
+    window.location.href = `Perdiste.html?word=${lostWord}`; // Reemplaza "ganaste.html" con la ruta de tu página de victoria
 }
 
 
